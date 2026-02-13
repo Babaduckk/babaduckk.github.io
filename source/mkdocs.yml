@@ -1,1 +1,5 @@
 site_name: Портфолио курса "Программирование на Python" и не только
+
+nav:
+  - Home: index.md
+  - About: about.md
