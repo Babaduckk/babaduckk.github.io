@@ -1,3 +1,7 @@
-# About me
+# Об Авторе
 
-On this page you will find information about my personality and professional skills
+## Персональные данные 
+
+**Имя**: Пахомов Дмитрий  
+**Место учебы**: Университет ITMO  
+**Направление**: Нейротехнологии и Программирование (Инженерия Искусственного Интеллекта)  

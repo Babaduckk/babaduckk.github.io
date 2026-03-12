@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block content %}
+  <div>
+    <div>
+      <h2>Описание задания</h2>
+      <p>{{ page.meta.task | markdown }}</p>
+    </div>
+
+    <div>
+      <h2>Цели работы</h2>
+      <p>{{ page.meta.goal | markdown }}</p>
+    </div>
+
+    <div>
+      <h2>Ход выполнения</h2>
+      {{ page.content }}
+    </div>
+
+    <div>
+      <h2>Выводы</h2>
+      <p>{{ page.meta.conclusion | markdown }}</p>
+    </div>
+  </div>
+{% endblock %}

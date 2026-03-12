@@ -3,6 +3,16 @@ site_name: Портфолио курса "Программирование на 
 nav:
   - Home: index.md
   - About: about.md
+  - Labs:
+      - Lab №1: labs/lab1.md
+      - Lab №2: labs/lab2.md
+      - Lab №3: labs/lab3.md
 
 theme:
-    name: dracula
+  name: readthedocs
+  custom_dir: docs/templates
+  locale: ru
+
+plugins:
+  - search
+  - markdown-filter
