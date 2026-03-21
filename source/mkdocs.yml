@@ -18,4 +18,4 @@ plugins:
   - markupsafe-markdown-filter
 
 docs_dir: docs
-site_dir: ../docs
+site_dir: ../site
