@@ -25,7 +25,7 @@ jobs:
       - name: Build Site
         run: | 
           mkdocs build --config-file source/mkdocs.yml
-          echo "Built in docs/ directory"
+          echo "Built in site/ directory"
 
       - name: Deploy Site
         uses: peaceiris/actions-gh-pages@v4
@@ -34,13 +34,16 @@ jobs:
           publish_dir: ./site
           publish_branch: release
           destination_dir: site
+          keep_files: false
 
       - name: Push to Sourcecraft Repository
         run: |
           git remote add sourcecraft "https://babaduckk:${{ secrets.SRCFT_TOKEN }}@git.sourcecraft.dev/babaduckk/portfolio.git"
           git fetch sourcecraft
-          git checkout sourcecraft/main
+          git checkout -b sourcecraft-main sourcecraft/main
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git merge main --no-edit --allow-unrelated-histories
-          git push sourcecraft HEAD:main
+          git push sourcecraft sourcecraft-main:main
           echo "Pushed to Sourcecraft"
           
