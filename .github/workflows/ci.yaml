@@ -43,8 +43,10 @@ jobs:
           git checkout -b sourcecraft-main sourcecraft/main
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git merge main --no-edit --allow-unrelated-histories
+          git merge main --no-commit --allow-unrelated-histories
           rm -rf .github
+          rm -rf site
+          git add -A
           git commit --no-edit
           git push sourcecraft sourcecraft-main:main
           echo "Pushed to Sourcecraft"
