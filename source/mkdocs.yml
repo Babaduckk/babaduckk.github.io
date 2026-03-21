@@ -15,4 +15,4 @@ theme:
 
 plugins:
   - search
-  - markdown-filter
+  - markupsafe-markdown-filter
