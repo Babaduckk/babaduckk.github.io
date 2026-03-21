@@ -33,6 +33,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
           publish_branch: release
+          destination_dir: docs
           keep_files: false
 
       - name: Push to Sourcecraft Repository
@@ -43,6 +44,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git merge main --no-edit --allow-unrelated-histories
+          rm -rf .github
+          git commit --no-edit
           git push sourcecraft sourcecraft-main:main
           echo "Pushed to Sourcecraft"
           
