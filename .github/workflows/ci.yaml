@@ -1,0 +1,45 @@
+name: Deploy MkDocs Site
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Build-Site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Dependencies
+        run: | 
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Build Site
+        run: | 
+          mkdocs build --config-file source/mkdocs.yml --site-dir docs
+          echo "Built in docs/ directory"
+
+      - name: Deploy Site
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: main
+
+      - name: Push to Sourcecraft Repository
+        run: |
+          git remote add sourcecraft "https://babaduckk:${{ secrets.SRCFT_TOKEN }}@git.sourcecraft.dev/babaduckk/profile.git"
+          git fetch sourcecraft
+          git checkout sourcecraft/main
+          git merge main --no-edit --allow-unrelated-histories
+          git push sourcecraft HEAD:main
+          echo "Pushed to Sourcecraft"
+          
