@@ -43,7 +43,7 @@ jobs:
           git checkout -b sourcecraft-main sourcecraft/main
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git merge main --no-commit --allow-unrelated-histories
+          git merge main -Xtheirs --no-commit --allow-unrelated-histories
           rm -rf .github
           rm -rf site
           git add -A
