@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Site
         run: | 
-          mkdocs build --config-file source/mkdocs.yml --site-dir docs
+          mkdocs build --config-file source/mkdocs.yml
           echo "Built in docs/ directory"
 
       - name: Deploy Site

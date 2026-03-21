@@ -16,3 +16,6 @@ theme:
 plugins:
   - search
   - markupsafe-markdown-filter
+
+docs_dir: docs
+site_dir: ../docs
