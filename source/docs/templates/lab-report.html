@@ -3,23 +3,31 @@
 {% block content %}
   <div>
     <div>
-      <h2>Описание задания</h2>
-      <p>{{ page.meta.task | markdown }}</p>
+      {% if page.meta.task is defined  %}
+        <h2>Описание задания</h2>
+        <p>{{ page.meta.task | markdown }}</p>
+      {% endif %}
     </div>
 
     <div>
-      <h2>Цели работы</h2>
-      <p>{{ page.meta.goal | markdown }}</p>
+      {% if page.meta.goal is defined %}
+        <h2>Цели работы</h2>
+        <p>{{ page.meta.goal | markdown }}</p>
+      {% endif %}
     </div>
 
     <div>
-      <h2>Ход выполнения</h2>
-      {{ page.content }}
+      {% if page.meta.content is defined %}
+        <h2>Ход выполнения</h2>
+        {{ page.content }}
+      {% endif %}
     </div>
 
     <div>
-      <h2>Выводы</h2>
-      <p>{{ page.meta.conclusion | markdown }}</p>
+      {% if page.meta.conclusion is defined %}
+        <h2>Выводы</h2>
+        <p>{{ page.meta.conclusion | markdown }}</p>
+      {% endif %}
     </div>
   </div>
 {% endblock %}
