@@ -82,96 +82,34 @@
               
   <div>
     <div>
-      <h2>Описание задания</h2>
-      <p><p>Создание и развертывание статического сайта на базе <code>MkDocs</code> с публикацией на <code>GitHub Pages</code></p></p>
+      
+        <h2>Описание задания</h2>
+        <p><p>Создание и развертывание статического сайта на базе <code>MkDocs</code> с публикацией на <code>GitHub Pages</code></p></p>
+      
     </div>
 
     <div>
-      <h2>Цели работы</h2>
-      <p><ul>
+      
+        <h2>Цели работы</h2>
+        <p><ul>
 <li>Освоить процесс создания статического сайта с использованием генератора документации <code>MkDocs</code></li>
 <li>Научиться организовывать структуру документации проекта (портфолио лабораторных работ)</li>
 <li>Изучить базовые принципы работы с системой контроля версий <code>Git</code> и платформой <code>GitHub</code></li>
 <li>Развернуть статический сайт с использованием механизма <code>GitHub Pages</code> на домене вида <code>username.github.io</code></li>
 <li>Освоить базовую настройку темы оформления и конфигурационного файла <code>mkdocs.yml</code></li>
 </ul></p>
+      
     </div>
 
     <div>
-      <h2>Ход выполнения</h2>
-      <p><strong>Структура проекта</strong></p>
-<pre><code>├── docs
-└── source
-    ├── docs
-    │   ├── labs
-    │   │   ├── img
-    │   ├── templates
-    │   │   └── lab-report.html
-    │   ├── about.md
-    │   └── index.md
-    └── mkdocs.yml
-</code></pre>
-<ul>
-<li>Из верхнеуровневой директории <code>docs</code> выполняется публикация статического сайта с помощью <code>GitHub Pages</code></li>
-<li>Поддиректория <code>labs</code> директории <code>source/docs</code> хранит поддиректорию <code>img</code> - изображения для отчетов и <code>.md</code> файлы формата <code>lab{k}.md</code> - отчет соответствующей работы</li>
-<li>Файл <code>lab-report.html</code> выступает базовым шаблоном всех отчетов</li>
-<li>Файлы <code>index.md</code> и <code>about.md</code> - страницы "главная" и "об авторе" соответственно</li>
-<li>Конфигурация сайта задается в <code>mkdocs.yml</code></li>
-</ul>
-<p><strong>Файл <code>lab-report.html</code></strong></p>
-<pre><code class="language-html">{% extends &quot;main.html&quot; %}
-
-{% block content %}
-  &lt;div&gt;
-    &lt;div&gt;
-      &lt;h2&gt;Описание задания&lt;/h2&gt;
-      &lt;p&gt;{{ page.meta.task | markdown }}&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div&gt;
-      &lt;h2&gt;Цели работы&lt;/h2&gt;
-      &lt;p&gt;{{ page.meta.goal | markdown }}&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div&gt;
-      &lt;h2&gt;Ход выполнения&lt;/h2&gt;
-      {{ page.content }}
-    &lt;/div&gt;
-
-    &lt;div&gt;
-      &lt;h2&gt;Выводы&lt;/h2&gt;
-      &lt;p&gt;{{ page.meta.conclusion | markdown }}&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-{% endblock %}
-</code></pre>
-<p><strong>Файл <code>mkdocs.yml</code></strong></p>
-<pre><code class="language-yaml">site_name: Портфолио курса &quot;Программирование на Python&quot; и не только
-
-nav:
-  - Home: index.md
-  - About: about.md
-  - Labs:
-      - Lab №1: labs/lab1.md
-      - Lab №2: labs/lab2.md
-      - Lab №3: labs/lab3.md
-
-theme:
-  name: readthedocs
-  custom_dir: docs/templates
-  locale: ru
-
-plugins:
-  - search
-  - markdown-filter
-</code></pre>
-<p><strong>Выбор темы</strong></p>
-<p>Основным критерием выбора темы была возможность (приемлемой) поддержки базового шаблона для <code>.md</code> файлов-отчетов. Как оказалось, не все темы удовлетворяют этому требованию: так, тема <code>snadcn</code> определяет сборку сайта таким образом, что шаблон не отображается на странице, тема <code>windmill</code> парсит файлы таким образом, что на странице появляются два набора кнопок-навигаций вперд и назад. Так как темы хотелось использовать, не разбираясь во внутренней реализации каждой, я выбрал ту, что поддерживает базовый шаболон и чей стиль (размер шрифта, цветовая гамма, расположение кнопок и меню) меня удовлетворяет</p>
+      
     </div>
 
     <div>
-      <h2>Выводы</h2>
-      <p><p>В ходе проделанной работы я научился использовать <code>MkDocs</code> для создания статического сайта-портфолио и развернул его с использованием <code>GitHub Pages</code></p></p>
+      
+        <h2>Выводы</h2>
+        <p><p>В ходе проделанной работы я научился использовать <code>MkDocs</code> для создания статического сайта-портфолио и развернул его с использованием <code>GitHub Pages</code></p></p>
+      
     </div>
   </div>
 
